@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection.Metadata.Ecma335;
 using System.Threading.Tasks;
 using CodingEvents.Data;
 using CodingEvents.Models;
@@ -52,6 +53,27 @@ namespace CodingEvents.Controllers
 
             return Redirect("/Events");
         }
+        [Route("/Events/Edit/{eventId}")]
+        public IActionResult Edit(int eventId)
+        {
+            // controller code will go here
+            Event EditingEvent = EventData.GetById(eventId);
+            ViewBag.EvtEdit = EditingEvent;
+            ViewBag.Title = "Edit Event" + EditingEvent.Name + "(id= " + EditingEvent.Id + ")";
+            return View();
+        }
+        
+        [HttpPost]
+        [Route("/Events/Edit")]
+        public IActionResult SubmitEditEventForm(int eventId, string name, string description)
+        {
+            // controller code will go here
+            Event EditingEvent = EventData.GetById(eventId);
+            EditingEvent.Name = name;
+            EditingEvent.Description = description;
+            return Redirect("/Events");
+        }
+        
     }
 }
 
