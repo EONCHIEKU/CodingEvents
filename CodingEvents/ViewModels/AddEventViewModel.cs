@@ -15,5 +15,16 @@ namespace CodingEvents.ViewModels
 
 		[EmailAddress]
 		public string? ContactEmail { get; set; }
-	}
+        [Required(ErrorMessage = "Location is required. FIX IT!")]
+        [StringLength (50, MinimumLength = 3, ErrorMessage = "Thats Absract. Be specific. The location should have between 3 to 50 characters" )]
+        public string Location { get; set; }
+        [Required(ErrorMessage = "You cant miss some friends. put some name here")]
+        [Range(0, 100000)]
+        public int NumOfAttendees { get; set; }
+        public bool  MustRegister { get; set; }
+        
+        [Compare("MustRegister", ErrorMessage = "No")]
+        public bool IsTrue { get { return true; } }
+
+    }
 }

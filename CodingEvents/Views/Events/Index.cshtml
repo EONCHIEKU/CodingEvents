@@ -31,14 +31,25 @@ else
             <th>
                 Contact Email
             </th>
+            <th>Location
+
+            </th>
+            <th>Number Of Attendees
+
+            </th>
+            <th>Registration is required.</th>
         </tr>
         @foreach (var evt in Model)
+        //in place of var we can write Event.
         {
             <tr>
                 <td>@evt.Id</td>
                 <td>@evt.Name</td>
                 <td>@evt.Description </td>
                 <td>@evt.ContactEmail</td>
+                <td>@evt.Location</td>
+                <td>@evt.NumOfAttendees</td>
+                <td>@evt.MustRegister</td>
             </tr>
         }
     </table>
