@@ -11,8 +11,14 @@ using CodingEvents.ViewModels;
 
 namespace CodingEvents.Controllers
 {
-    public class EventsController : Controller
+        public class EventsController : Controller
     {
+        private EventDbContext context;
+        public EventsController(EventDbContext dbcontext) 
+        {
+            context = dbcontext;
+        
+        }
         // GET: /<controller>/
         public IActionResult Index()
         {
