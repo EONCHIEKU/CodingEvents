@@ -6,10 +6,11 @@
  </h1>
 
 <form asp-controller="EventCategory" asp-action="ProcessCreateEventCategoryForm" method="post">
-    <label>
-        Name
+    <div class="form-group">
+        <label>Name
         <input asp-for = "Name"/>
         <span asp-validation-for="Name"></span>
         </label>
+        </div>
         <input type="submit" value="Add Category">
 </form>
