@@ -30,16 +30,19 @@ namespace CodingEvents.ViewModels
             foreach (var category in categories)
             {
                 Categories.Add(
-                    new SelectListItem
-                    {
-                        Value = category.Id.ToString(),
-                        Text = category.Name
-                    }
-                ); ;
+                new SelectListItem
+                {
+                    Value = category.Id.ToString(),
+                    Text = category.Name
+                }); 
             }
         }
 
-        public AddEventViewModel() { }
+        public AddEventViewModel () 
+        {
+            
+        }
+
     }
 }
 
